@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Adding Project</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .comments{
+            border: 2px solid black;
+            padding: 20px;
+            background-color: aquamarine;
+            margin-bottom: 30px;
+        }
+        p{
+            background-color: rgb(151, 89, 89);
+            color: wheat;
+            padding: 50px;
+            font-size: 24px;
+        }
+        textarea{
+            background-color: cyan;
+            font-size: 24px;
+        }
+        #post-comment, #delete-comment{
+            background-color: blueviolet;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="comments" id="my-comment">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa rem eaque odit doloribus reprehenderit dolor!</p>
+        <p>Fuga ut eveniet consequatur laudantium reiciendis delectus quas porro eaque modi ipsam, alias officia dignissimos?</p>
+    </div>
+    <div class="post-comments">
+        <textarea name="" id="comment-text" cols="60" rows="10"></textarea><br>
+        <button id="post-comment">Add Comment</button>
+        <button id="delete-comment">Delete Comment</button>
+    </div>
+    <script>
+        document.getElementById("post-comment").addEventListener("click",function(){
+            let comment=document.getElementById("comment-text").value;
+            console.log(comment);
+            const p=document.createElement("p");
+            p.innerText=comment;
+            console.log(p);
+            const myComment=document.getElementsByClassName("comments")[0];
+            myComment.appendChild(p);
+            document.getElementById("comment-text").value="";
+        })
+        document.getElementById("delete-comment").addEventListener("click",function(){
+            document.getElementById("comment-text").removeChild(p);
+        })
+    </script>
+    <script src="js/test.js"></script>
+</body>
+</html>
